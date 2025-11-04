@@ -1,0 +1,54 @@
+DEPOIMENTO 1:
+-----------
+Nome: [Nome completo do aluno]
+Resultado: [Ex: "Perdeu 15kg em 6 meses" / "Ganhou 5kg de massa muscular"]
+Depoimento: "[Escreva 2-3 linhas sobre a experiência na academia e os resultados]"
+Autorização LGPD: [ ] Assinada (obrigatório!)
+
+Arquivos de foto:
+- depoimento-1-antes.jpg
+- depoimento-1-depois.jpg
+
+
+DEPOIMENTO 2:
+-----------
+Nome: [Nome completo do aluno]
+Resultado: [Ex: "Perdeu 15kg em 6 meses" / "Ganhou 5kg de massa muscular"]
+Depoimento: "[Escreva 2-3 linhas sobre a experiência na academia e os resultados]"
+Autorização LGPD: [ ] Assinada (obrigatório!)
+
+Arquivos de foto:
+- depoimento-2-antes.jpg
+- depoimento-2-depois.jpg
+
+
+DEPOIMENTO 3:
+-----------
+Nome: [Nome completo do aluno]
+Resultado: [Ex: "Perdeu 15kg em 6 meses" / "Ganhou 5kg de massa muscular"]
+Depoimento: "[Escreva 2-3 linhas sobre a experiência na academia e os resultados]"
+Autorização LGPD: [ ] Assinada (obrigatório!)
+
+Arquivos de foto:
+- depoimento-3-antes.jpg
+- depoimento-3-depois.jpg
+
+
+===================================
+INSTRUÇÕES:
+===================================
+
+1. Preencha as informações entre [ ]
+2. Para cada aluno, você precisa de:
+   - 1 foto ANTES da transformação
+   - 1 foto DEPOIS da transformação
+   - Autorização por escrito para uso da imagem (LGPD)
+
+3. Dicas para boas fotos antes/depois:
+   - Mesma pose
+   - Mesma iluminação
+   - Fundo neutro
+   - Dimensões: 600x800px (vertical)
+
+4. Após preencher, salve este arquivo e coloque as fotos na pasta:
+   /public/images/testimonials/
