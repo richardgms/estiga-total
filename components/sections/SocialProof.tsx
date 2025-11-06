@@ -249,5 +249,3 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
 };
 
 export default SocialProof;
-
-export default SocialProof;
