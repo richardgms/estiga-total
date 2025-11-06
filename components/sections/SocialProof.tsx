@@ -241,7 +241,7 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
         </div>
 
         <p className="text-gray-600 italic leading-relaxed text-sm lg:text-sm">
-          "{testimonial.testimonial}"
+          '{testimonial.testimonial}'
         </p>
       </div>
     </div>
