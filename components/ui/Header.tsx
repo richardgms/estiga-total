@@ -12,14 +12,14 @@ const Header: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 w-full backdrop-blur-xl bg-black/40 shadow-2xl z-50 border-b border-white/10">
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/10 pointer-events-none" />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-3 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-4 relative z-10">
         <div className="flex items-center justify-between gap-4">
           <button
             onClick={scrollToTop}
             className="flex items-center transition-all hover:scale-105 active:scale-95"
             aria-label="Voltar ao topo"
           >
-            <div className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight">
+            <div className="text-2xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight">
               ESTIGA TOTAL
             </div>
           </button>

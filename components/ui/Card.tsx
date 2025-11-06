@@ -18,7 +18,7 @@ const Card: React.FC<CardProps> = ({
   const variantStyles = {
     default: 'bg-white shadow-md border border-gray-100',
     testimonial: 'bg-white shadow-lg p-6',
-    benefit: 'bg-white shadow-md p-8 text-center',
+    benefit: 'bg-white shadow-md p-6 md:p-8 text-center',
     modality: 'bg-white shadow-lg relative overflow-hidden',
   };
   

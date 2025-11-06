@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 container mx-auto px-6 py-32 sm:px-8 lg:px-12">
         <div className="flex flex-col items-center lg:items-start lg:max-w-4xl text-center lg:text-left">
-          <div className="mb-8 inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-gradient-to-r from-secondary-orange to-orange-600 text-white font-bold text-sm sm:text-base shadow-2xl border-2 border-white/20">
+          <div className="mb-8 inline-flex items-center gap-3 px-5 py-3 rounded-full bg-gradient-to-r from-secondary-orange to-orange-600 text-white font-bold text-sm sm:text-base shadow-2xl border-2 border-white/20">
             <span className="tracking-wide">1 DIA GRÁTIS - Qualquer Modalidade</span>
           </div>
 
@@ -44,31 +44,31 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto mb-10">
             <Button
               variant="primary-orange"
-              size="large"
+              size="medium"
               showWhatsAppIcon
               href={getWhatsAppLink('Olá! Quero agendar minha aula experimental GRÁTIS na Estiga Total!')}
-              className="text-xl sm:text-2xl px-10 py-6 shadow-2xl hover:shadow-secondary-orange/30 font-bold"
+              className="text-base px-8 py-3 shadow-2xl hover:shadow-secondary-orange/30 font-bold whitespace-nowrap"
             >
               Quero Minha Aula Grátis
             </Button>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-3xl">
-            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-secondary-orange/60 hover:bg-white/20 transition-all">
+            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-xl p-5 border border-secondary-orange/60 hover:bg-white/20 transition-all">
               <FaCheckCircle className="text-3xl text-secondary-orange flex-shrink-0" />
               <div className="text-left">
                 <p className="text-white font-bold text-base">Sem Taxa</p>
                 <p className="text-gray-300 text-sm">de Matrícula</p>
               </div>
             </div>
-            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-secondary-orange/60 hover:bg-white/20 transition-all">
+            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-xl p-5 border border-secondary-orange/60 hover:bg-white/20 transition-all">
               <FaDumbbell className="text-3xl text-secondary-orange flex-shrink-0" />
               <div className="text-left">
                 <p className="text-white font-bold text-base">6 Modalidades</p>
                 <p className="text-gray-300 text-sm">Incluídas</p>
               </div>
             </div>
-            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-secondary-orange/60 hover:bg-white/20 transition-all">
+            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-xl p-5 border border-secondary-orange/60 hover:bg-white/20 transition-all">
               <FaCheckCircle className="text-3xl text-secondary-orange flex-shrink-0" />
               <div className="text-left">
                 <p className="text-white font-bold text-base">Horários</p>

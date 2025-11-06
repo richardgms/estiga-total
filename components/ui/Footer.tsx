@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-black text-neutral py-8 md:py-8 overflow-hidden">
+    <footer className="relative bg-black text-neutral py-10 md:py-10 overflow-hidden">
       <div className="absolute -top-48 -left-48 w-[40rem] h-[32rem] bg-secondary-orange/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -top-48 -right-48 w-[36rem] h-[30rem] bg-secondary-orange/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-64 left-1/2 -translate-x-1/2 w-[48rem] h-96 bg-secondary-orange/10 rounded-full blur-3xl pointer-events-none" />
@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
             <h3 className="text-2xl md:text-3xl font-black mb-3 md:mb-4 text-secondary-orange">
               ESTIGA TOTAL
             </h3>
-            <p className="text-gray-300 text-xs md:text-sm leading-relaxed mb-3 md:mb-4">
+            <p className="text-gray-300 text-sm md:text-sm leading-relaxed mb-3 md:mb-4">
               Academia completa em Santa Rita/PB com estrutura moderna, profissionais qualificados e planos acessíveis.
             </p>
             <div className="flex justify-center md:justify-start gap-3 mt-4 md:mt-6">
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
           <div className="grid grid-cols-2 gap-6 md:contents">
             <div className="text-left md:text-left">
               <h4 className="font-bold mb-3 md:mb-4 text-base md:text-lg text-secondary-orange">Contato</h4>
-              <ul className="space-y-2.5 md:space-y-3 text-xs md:text-sm text-gray-300">
+              <ul className="space-y-3 md:space-y-3 text-sm md:text-sm text-gray-300">
                 <li>
                   <a
                     href="tel:+5583991907740"
@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
 
             <div className="text-left md:text-left">
               <h4 className="font-bold mb-3 md:mb-4 text-base md:text-lg text-secondary-orange">Horário</h4>
-              <ul className="space-y-2 md:space-y-2.5 text-xs md:text-sm text-gray-300">
+              <ul className="space-y-3 md:space-y-3 text-sm md:text-sm text-gray-300">
                 <li className="flex items-start gap-2">
                   <FaClock className="text-secondary-orange mt-0.5 flex-shrink-0" />
                   <div>
@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
 
           <div className="text-left md:text-left">
             <h4 className="font-bold mb-3 md:mb-4 text-base md:text-lg text-secondary-orange">Modalidades</h4>
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs md:text-sm text-gray-300">
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm md:text-sm text-gray-300">
               <li className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-secondary-orange flex-shrink-0"></span>
                 <span>Musculação</span>
@@ -115,11 +115,11 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-gray-800 pt-6 md:pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-xs md:text-sm text-gray-400">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-sm md:text-sm text-gray-400">
             <p className="text-center md:text-left">
               © {currentYear} <span className="font-semibold text-white">Estiga Total Academia</span> - Santa Rita/PB. Todos os direitos reservados.
             </p>
-            <div className="flex gap-4 md:gap-6 text-xs">
+            <div className="flex gap-4 md:gap-6 text-sm">
               <a href="#" className="hover:text-secondary-orange transition-colors">
                 Política de Privacidade
               </a>
