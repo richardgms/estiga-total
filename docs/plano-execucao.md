@@ -328,7 +328,7 @@
 
   **2. Estrutura Completa**
   - Ícone: prédio ou equipamento
-  - Texto: "Equipamentos de última geração. Ambiente climatizado e higienizado."
+  - Texto: "Equipamentos de última geração, higienizados e bem conservados."
 
   **3. Flexibilidade de Horários**
   - Ícone: relógio
@@ -595,29 +595,20 @@
 **Sub-etapas:**
 - [ ] **Estrutura da Seção:**
   - Full-width
-  - Background: gradiente laranja/roxo vibrante
   - Padding generoso (py-16 → py-24)
 
 - [ ] **Elementos de Conteúdo:**
   - Título: "Pronto para Sua Transformação?"
-    - Font-size: text-4xl → text-6xl
-    - Cor: branco
-    - Font-weight: bold
   - Subtítulo: "Agende agora sua aula experimental grátis!"
-    - Font-size: text-xl → text-2xl
-    - Cor: branco/transparente
 
 - [ ] **CTA Principal:**
   - Botão grande: "Quero Minha Aula Grátis"
-  - Cor: branco com texto escuro
-  - Tamanho: extra large (px-12 py-6)
   - Ícone WhatsApp
   - Tracking: evento GA4 `cta_final_click`
 
 - [ ] **Elemento de Urgência:**
   - Badge: "Vagas limitadas por horário"
   - Posição: abaixo do botão
-  - Cor: amarelo ou branco transparente
 
 - [ ] **Responsividade:**
   - Conteúdo centralizado

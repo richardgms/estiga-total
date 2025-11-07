@@ -128,8 +128,7 @@ João Silva
    - Acompanhamento personalizado em todas as modalidades
 
 2. **Estrutura Completa**
-   - Equipamentos de última geração
-   - Ambiente climatizado e higienizado
+   - Equipamentos de última geração, higienizados e bem conservados
 
 3. **Flexibilidade de Horários**
    - Seg a Sex: 05h às 22h

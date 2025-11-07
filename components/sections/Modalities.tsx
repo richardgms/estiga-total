@@ -243,7 +243,7 @@ const ScheduleCard: React.FC<{ daySchedule: DaySchedule; index: number }> = ({ d
 
       <div className="space-y-2.5">
         {daySchedule.classes.map((classItem, idx) => (
-          <div key={idx} className="flex items-center gap-3 bg-white/50 rounded-lg p-2.5 hover:bg-white/80 transition-colors duration-200">
+          <div key={idx} className="flex items-center gap-3 bg-neutral-100/80 rounded-lg p-2.5 hover:bg-neutral-50 transition-colors duration-200">
             <div className="flex-shrink-0 w-9 h-9 bg-black rounded-lg flex items-center justify-center">
               {modalityIcons[classItem.modality] || <FaHeartbeat className="text-lg text-secondary-orange" />}
             </div>
