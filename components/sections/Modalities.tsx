@@ -217,20 +217,8 @@ const ModalityCard: React.FC<{ modality: Modality }> = ({ modality }) => {
 };
 
 const ScheduleCard: React.FC<{ daySchedule: DaySchedule; index: number }> = ({ daySchedule, index }) => {
-  const colors = [
-    'from-secondary-orange/10 to-secondary-orange/5',
-    'from-neutral-100 to-neutral-50',
-  ];
-
-  const borderColors = [
-    'border-secondary-orange/20 hover:border-secondary-orange/40',
-    'border-neutral-200 hover:border-neutral-300',
-  ];
-
-  const colorIndex = index % 2;
-
   return (
-    <div className={`group relative bg-gradient-to-br ${colors[colorIndex]} rounded-xl p-4 md:p-5 border ${borderColors[colorIndex]} transition-all duration-300 hover:shadow-lg hover:-translate-y-1`}>
+    <div className="group relative bg-gradient-to-br from-secondary-orange/10 to-secondary-orange/5 rounded-xl p-4 md:p-5 border border-secondary-orange/20 hover:border-secondary-orange/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
       <div className="flex items-center justify-between mb-3">
         <h4 className="text-base sm:text-lg font-bold text-black">
           {daySchedule.day}
@@ -243,7 +231,7 @@ const ScheduleCard: React.FC<{ daySchedule: DaySchedule; index: number }> = ({ d
 
       <div className="space-y-2.5">
         {daySchedule.classes.map((classItem, idx) => (
-          <div key={idx} className="flex items-center gap-3 bg-neutral-100/80 rounded-lg p-2.5 hover:bg-neutral-50 transition-colors duration-200">
+          <div key={idx} className="flex items-center gap-3 bg-white/50 rounded-lg p-2.5 hover:bg-white/80 transition-colors duration-200">
             <div className="flex-shrink-0 w-9 h-9 bg-black rounded-lg flex items-center justify-center">
               {modalityIcons[classItem.modality] || <FaHeartbeat className="text-lg text-secondary-orange" />}
             </div>
