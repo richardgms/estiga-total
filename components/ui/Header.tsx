@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { FaMapMarkerAlt, FaWhatsapp, FaPhone } from 'react-icons/fa';
 import { getWhatsAppLink } from '@/lib/whatsapp';
 
@@ -16,11 +17,30 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between gap-4">
           <button
             onClick={scrollToTop}
-            className="flex items-center transition-all hover:scale-105 active:scale-95"
+            className="flex items-center gap-2 sm:gap-3 transition-all hover:scale-105 active:scale-95"
             aria-label="Voltar ao topo"
           >
-            <div className="text-2xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight">
-              ESTIGA TOTAL
+            <div className="relative w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 flex-shrink-0">
+              <Image
+                src="/icons/logo.png"
+                alt="Estiga Total Logo"
+                fill
+                className="object-contain"
+                quality={95}
+                priority
+                sizes="(max-width: 640px) 32px, (max-width: 1024px) 40px, 48px"
+              />
+            </div>
+            <div className="relative h-6 sm:h-7 lg:h-8 w-32 sm:w-40 lg:w-48">
+              <Image
+                src="/icons/wordmark.webp"
+                alt="Estiga Total"
+                fill
+                className="object-contain"
+                quality={95}
+                priority
+                sizes="(max-width: 640px) 128px, (max-width: 1024px) 160px, 192px"
+              />
             </div>
           </button>
 
