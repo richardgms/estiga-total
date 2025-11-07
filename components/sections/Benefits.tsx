@@ -21,7 +21,7 @@ const benefits: Benefit[] = [
     id: 2,
     icon: <FaDumbbell className="text-5xl text-secondary-orange" />,
     title: 'Estrutura Completa',
-    description: 'Equipamentos de última geração. Ambiente climatizado e higienizado.',
+    description: 'Equipamentos de última geração, higienizados e bem conservados.',
   },
   {
     id: 3,
