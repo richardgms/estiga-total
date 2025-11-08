@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Estiga Total Academia - Santa Rita/PB",
   description: "Academia completa em Santa Rita. Musculação, Fit Dance, Jump, Aeróbox e mais!",
+  icons: {
+    icon: '/icons/logo.svg',
+  },
 };
 
 export default function RootLayout({

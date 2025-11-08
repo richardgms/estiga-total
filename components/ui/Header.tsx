@@ -22,7 +22,7 @@ const Header: React.FC = () => {
           >
             <div className="relative w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 flex-shrink-0">
               <Image
-                src="/icons/logo.png"
+                src="/icons/logo.svg"
                 alt="Estiga Total Logo"
                 fill
                 className="object-contain"
@@ -33,7 +33,7 @@ const Header: React.FC = () => {
             </div>
             <div className="relative h-6 sm:h-7 lg:h-8 w-32 sm:w-40 lg:w-48">
               <Image
-                src="/icons/wordmark.webp"
+                src="/icons/wordmark.svg"
                 alt="Estiga Total"
                 fill
                 className="object-contain"

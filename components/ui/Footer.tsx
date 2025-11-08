@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaClock, FaPhone } from 'react-icons/fa';
 import { getWhatsAppLink } from '@/lib/whatsapp';
 
@@ -13,9 +14,15 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-8 md:mb-12">
           <div className="text-center md:text-left">
-            <h3 className="text-2xl md:text-3xl font-black mb-3 md:mb-4 text-secondary-orange">
-              ESTIGA TOTAL
-            </h3>
+            <div className="mb-3 md:mb-4 flex justify-center md:justify-start">
+              <Image
+                src="/icons/wordmark.svg"
+                alt="Estiga Total"
+                width={180}
+                height={28}
+                className="w-auto h-7 md:h-8"
+              />
+            </div>
             <p className="text-gray-300 text-sm md:text-sm leading-relaxed mb-3 md:mb-4">
               Academia completa em Santa Rita/PB com estrutura moderna, profissionais qualificados e planos acessíveis.
             </p>
