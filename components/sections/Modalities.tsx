@@ -163,13 +163,13 @@ const Modalities: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           {modalities.slice(0, 6).map((modality, index) => (
             <ModalityCard key={index} modality={modality} />
           ))}
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 lg:gap-6 mb-16">
+        <div className="flex flex-wrap justify-center gap-4 lg:gap-6 mt-4 lg:mt-6 mb-16">
           {modalities.slice(6).map((modality, index) => (
             <div key={index + 6} className="w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-1rem)]">
               <ModalityCard modality={modality} />
