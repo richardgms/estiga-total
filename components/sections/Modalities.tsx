@@ -1,14 +1,13 @@
 'use client';
 
 import React from 'react';
-import { FaDumbbell, FaMusic, FaHeartbeat, FaClock, FaRunning } from 'react-icons/fa';
-import { MdSportsGymnastics, MdSportsKabaddi, MdFitnessCenter } from 'react-icons/md';
+import { FaDumbbell, FaMusic, FaHeartbeat, FaClock, FaRunning, FaChild } from 'react-icons/fa';
+import { MdSportsGymnastics, MdSportsKabaddi, MdFitnessCenter, MdSelfImprovement } from 'react-icons/md';
 import { GiBoxingGlove, GiWeightLiftingUp } from 'react-icons/gi';
 
 interface ScheduleItem {
   time: string;
   modality: string;
-  instructor: string;
 }
 
 interface DaySchedule {
@@ -79,41 +78,61 @@ const modalities: Modality[] = [
       'Treino completo',
     ],
   },
+  {
+    title: 'Pilates Solo',
+    icon: <MdSelfImprovement className="text-4xl text-secondary-orange" />,
+    benefits: [
+      'Fortalecimento do core',
+      'Melhora postura e flexibilidade',
+      'Exercícios no solo',
+    ],
+  },
+  {
+    title: 'Funcional Kids',
+    icon: <FaChild className="text-4xl text-secondary-orange" />,
+    benefits: [
+      'Atividades lúdicas',
+      'Desenvolve coordenação motora',
+      'Treinamento para crianças',
+    ],
+  },
 ];
 
 const schedule: DaySchedule[] = [
   {
     day: 'Segunda-feira',
     classes: [
-      { time: '06h', modality: 'Aeróbox', instructor: 'Elias' },
-      { time: '17h', modality: 'Jump + Step', instructor: 'Nelsinho' },
-      { time: '19h', modality: 'Fit Dance', instructor: 'Lorrany' },
+      { time: '17h', modality: 'Step' },
+      { time: '19h', modality: 'Hit Box' },
     ],
   },
   {
     day: 'Terça-feira',
     classes: [
-      { time: '06h', modality: 'Hit Box', instructor: 'Samba Trigueiro' },
-      { time: '19h', modality: 'Jump + Step', instructor: 'Valderão Neto' },
+      { time: '17h', modality: 'Pilates Solo' },
+      { time: '18h', modality: 'Funcional Kids' },
+      { time: '19h', modality: 'Fit Dance' },
     ],
   },
   {
     day: 'Quarta-feira',
     classes: [
-      { time: '17h', modality: 'Jump + Step', instructor: 'Nelsinho' },
-      { time: '19h', modality: 'Aeróbox', instructor: 'Elias' },
+      { time: '06h', modality: 'Hit Box' },
+      { time: '17h', modality: 'Jump' },
+      { time: '19h', modality: 'Aeróbox' },
     ],
   },
   {
     day: 'Quinta-feira',
     classes: [
-      { time: '19h', modality: 'Fit Dance', instructor: 'Lorrany' },
+      { time: '19h', modality: 'Fit Dance' },
     ],
   },
   {
     day: 'Sexta-feira',
     classes: [
-      { time: '17h', modality: 'Hit Box', instructor: 'Poly' },
+      { time: '06h', modality: 'Hit Box' },
+      { time: '17h', modality: 'Hit Box' },
     ],
   },
 ];
@@ -123,6 +142,10 @@ const modalityIcons: { [key: string]: React.ReactNode } = {
   'Jump + Step': <MdSportsGymnastics className="text-2xl text-secondary-orange" />,
   'Fit Dance': <FaMusic className="text-2xl text-secondary-orange" />,
   'Hit Box': <MdSportsKabaddi className="text-2xl text-secondary-orange" />,
+  'Step': <MdSportsGymnastics className="text-2xl text-secondary-orange" />,
+  'Jump': <MdSportsGymnastics className="text-2xl text-secondary-orange" />,
+  'Pilates Solo': <MdSelfImprovement className="text-2xl text-secondary-orange" />,
+  'Funcional Kids': <FaChild className="text-2xl text-secondary-orange" />,
 };
 
 const Modalities: React.FC = () => {
@@ -141,8 +164,16 @@ const Modalities: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mb-16">
-          {modalities.map((modality, index) => (
+          {modalities.slice(0, 6).map((modality, index) => (
             <ModalityCard key={index} modality={modality} />
+          ))}
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-4 lg:gap-6 mb-16">
+          {modalities.slice(6).map((modality, index) => (
+            <div key={index + 6} className="w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-1rem)]">
+              <ModalityCard modality={modality} />
+            </div>
           ))}
         </div>
 
@@ -229,7 +260,7 @@ const ScheduleCard: React.FC<{ daySchedule: DaySchedule; index: number }> = ({ d
         </div>
       </div>
 
-      <div className="space-y-2.5">
+      <div className="space-y-2.5 min-h-[140px] flex flex-col justify-center">
         {daySchedule.classes.map((classItem, idx) => (
           <div key={idx} className="flex items-center gap-3 bg-white/50 rounded-lg p-2.5 hover:bg-white/80 transition-colors duration-200">
             <div className="flex-shrink-0 w-9 h-9 bg-black rounded-lg flex items-center justify-center">
@@ -237,12 +268,11 @@ const ScheduleCard: React.FC<{ daySchedule: DaySchedule; index: number }> = ({ d
             </div>
 
             <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-0.5">
+              <div className="flex items-center gap-2">
                 <span className="text-xs font-bold text-secondary-orange">{classItem.time}</span>
                 <span className="text-neutral-400 text-xs">•</span>
                 <span className="text-xs font-semibold text-black truncate">{classItem.modality}</span>
               </div>
-              <p className="text-sm text-neutral-600">Prof. {classItem.instructor}</p>
             </div>
           </div>
         ))}
