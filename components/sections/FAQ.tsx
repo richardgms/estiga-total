@@ -15,7 +15,7 @@ const faqData: FAQItem[] = [
   },
   {
     question: 'Preciso de avaliação médica?',
-    answer: 'Recomendamos, mas não é obrigatório. Oferecemos avaliação física gratuita na matrícula.',
+    answer: 'Recomendamos avaliação médica antes de iniciar atividades físicas, mas não é obrigatório para matrícula.',
   },
   {
     question: 'Posso cancelar o plano?',
@@ -23,7 +23,7 @@ const faqData: FAQItem[] = [
   },
   {
     question: 'Quais modalidades estão inclusas?',
-    answer: 'Musculação, Aeróbox, Jump, Step, Fit Dance, Hit Box, Funcional e mais!',
+    answer: 'Musculação, Aeróbox, Jump, Step, Fit Dance, Hit Box, Funcional, Pilates Solo, Funcional Kids e mais!',
   },
   {
     question: 'Tem estacionamento?',
