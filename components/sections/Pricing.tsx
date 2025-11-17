@@ -8,52 +8,65 @@ import { FaCheck } from 'react-icons/fa';
 const Pricing: React.FC = () => {
   const plans = [
     {
-      name: 'Plano Mensal',
+      name: 'Plano Mensal Prata',
       price: 79,
       period: 'mês',
       popular: false,
+      additionalFee: '+ R$ 19 taxa de matrícula',
       benefits: [
-        'Todas as 6 modalidades',
-        'Avaliação física gratuita',
-        'Sem taxa de matrícula',
+        'Apenas 1 modalidade à escolha',
         'Aulas ilimitadas',
         'Horários flexíveis',
-        'Equipamentos modernos'
+        'Equipamentos modernos',
+        'Sem fidelidade'
       ],
-      message: 'Olá! Quero conhecer o Plano Mensal da Estiga Total!'
+      message: 'Olá! Quero conhecer o Plano Mensal Prata da Estiga Total!'
     },
     {
-      name: 'Plano Clube+',
-      price: 49,
+      name: 'Plano Passaporte',
+      price: 89,
       period: 'mês',
-      popular: true,
-      highlight: '1 ano de treino garantido',
-      savings: 'Economia de R$ 310 comparado ao plano mensal',
+      popular: false,
+      additionalFee: '+ R$ 19 taxa de matrícula',
       benefits: [
-        '1 ano de treino garantido',
-        'Avaliação física gratuita',
-        'Todas as 6 modalidades inclusas',
-        'Traga um amigo a cada 30 dias',
-        'Primeira e última: R$ 1,00',
-        '10x de R$ 49,00 demais meses'
+        'Todas as modalidades',
+        'Aulas ilimitadas',
+        'Horários flexíveis',
+        'Equipamentos modernos',
+        'Sem fidelidade'
       ],
-      message: 'Olá! Quero conhecer o Plano Clube+ da Estiga Total!'
+      message: 'Olá! Quero conhecer o Plano Passaporte da Estiga Total!'
     },
     {
       name: 'Plano Semestral',
       price: 69,
       period: 'mês',
       popular: false,
-      highlight: '6 meses de compromisso',
+      highlight: '6 parcelas fixas',
       benefits: [
-        'Todas as 6 modalidades',
-        'Avaliação física gratuita',
+        'Todas as modalidades',
         'Sem taxa de matrícula',
         'Aulas ilimitadas',
         'Horários flexíveis',
         'Preço fixo por 6 meses'
       ],
       message: 'Olá! Quero conhecer o Plano Semestral da Estiga Total!'
+    },
+    {
+      name: 'Plano Clube+',
+      price: 49,
+      period: 'mês',
+      popular: true,
+      highlight: '12 parcelas - Melhor custo-benefício',
+      savings: 'Economia de até R$ 480 comparado ao mensal',
+      benefits: [
+        'Todas as modalidades',
+        'Isenção da taxa de matrícula',
+        'Avaliação física completa grátis',
+        'Traga um amigo a cada 30 dias',
+        '12 parcelas de R$ 49,00'
+      ],
+      message: 'Olá! Quero conhecer o Plano Clube+ da Estiga Total!'
     }
   ];
 
@@ -70,18 +83,16 @@ const Pricing: React.FC = () => {
             Planos que Cabem <span className="text-secondary-orange">no Seu Bolso</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto">
-            Sem taxa de matrícula. Todas as modalidades inclusas.
+            Escolha o plano ideal para seus objetivos. Sem surpresas.
           </p>
         </div>
 
         {/* Grid de planos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16 sm:mb-20">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative ${
-                plan.popular ? 'lg:scale-110 lg:z-10' : ''
-              }`}
+              className="relative"
             >
               {/* Card do plano */}
               <div
@@ -123,6 +134,11 @@ const Pricing: React.FC = () => {
                       </span>
                       <span className="text-xl text-gray-300">/{plan.period}</span>
                     </div>
+                    {(plan as any).additionalFee && (
+                      <p className="text-xs text-gray-400 mt-1">
+                        {(plan as any).additionalFee}
+                      </p>
+                    )}
                     {plan.savings && (
                       <p className="text-sm text-gray-400 mt-2">
                         *{plan.savings}

@@ -19,30 +19,21 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: 'Maria Silva',
-    result: '-22kg em 6 meses',
+    name: 'Thaiz',
+    result: '-10kg (74kg → 64kg)',
     rating: 5,
-    testimonial: 'Nunca imaginei que conseguiria emagrecer tanto! A equipe da Estiga Total me apoiou em cada etapa. Hoje me sinto mais confiante e saudável.',
-    beforeImage: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1550345332-09e3ac987658?w=600&h=800&fit=crop',
+    testimonial: 'A Estiga Total mudou minha vida! Com o apoio da equipe, eliminei 10kg e conquistei a saúde que sempre quis. Me sinto incrível!',
+    beforeImage: '/images/testimonials/testimonial1.jpg',
+    afterImage: '/images/testimonials/testimonial1(1).jpg',
   },
   {
     id: 2,
-    name: 'João Santos',
-    result: '+15kg de massa muscular',
+    name: 'Thaise',
+    result: '-9kg em 30 dias',
     rating: 5,
-    testimonial: 'Treino há 1 ano na Estiga e os resultados são incríveis! Profissionais qualificados e estrutura completa. Recomendo demais!',
-    beforeImage: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&h=800&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=600&h=800&fit=crop',
-  },
-  {
-    id: 3,
-    name: 'Ana Paula',
-    result: '-18kg em 8 meses',
-    rating: 5,
-    testimonial: 'Melhor decisão que tomei! Além de perder peso, ganhei qualidade de vida. As aulas coletivas são maravilhosas e motivadoras.',
-    beforeImage: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&h=800&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&h=800&fit=crop',
+    testimonial: 'Em apenas 30 dias consegui resultados que nunca imaginei! A equipe da Estiga Total é incrível, me motivaram todos os dias. Estou muito feliz com minha transformação!',
+    beforeImage: '/images/testimonials/testimonial2.jpg',
+    afterImage: '/images/testimonials/testimonial2(1).jpg',
   },
 ];
 
@@ -136,7 +127,7 @@ const SocialProof: React.FC = () => {
           </p>
         </div>
 
-        <div className="hidden lg:grid lg:grid-cols-3 gap-8 mb-12">
+        <div className="hidden lg:grid lg:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
           {testimonials.map((testimonial) => (
             <TestimonialCard key={testimonial.id} testimonial={testimonial} />
           ))}
@@ -195,32 +186,45 @@ const SocialProof: React.FC = () => {
 };
 
 const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => {
+  const [showAfter, setShowAfter] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowAfter((prev) => !prev);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-secondary-orange/30 group max-w-md mx-auto lg:max-w-none">
-      <div className="grid grid-cols-2 gap-0">
-        <div className="relative aspect-[3/5] lg:aspect-[3/4] overflow-hidden">
-          <div className="absolute top-2 left-2 lg:top-3 lg:left-3 z-10 bg-black/70 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 lg:px-3 lg:py-1.5 rounded-full">
-            ANTES
-          </div>
-          <Image
-            src={testimonial.beforeImage}
-            alt={`${testimonial.name} - Antes`}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
-            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 20vw"
-          />
+      <div className="relative aspect-[3/5] lg:aspect-[3/4] overflow-hidden">
+        <div className="absolute top-2 left-2 lg:top-3 lg:left-3 z-10 bg-black/70 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 lg:px-3 lg:py-1.5 rounded-full transition-all duration-300">
+          {showAfter ? 'DEPOIS' : 'ANTES'}
         </div>
-        <div className="relative aspect-[3/5] lg:aspect-[3/4] overflow-hidden">
-          <div className="absolute top-2 right-2 lg:top-3 lg:right-3 z-10 bg-secondary-orange text-white text-xs font-bold px-2 py-1 lg:px-3 lg:py-1.5 rounded-full">
-            DEPOIS
+
+        <div
+          className="flex w-[200%] h-full transition-transform duration-700 ease-in-out"
+          style={{ transform: showAfter ? 'translateX(-50%)' : 'translateX(0)' }}
+        >
+          <div className="relative w-1/2 h-full flex-shrink-0">
+            <Image
+              src={testimonial.beforeImage}
+              alt={`${testimonial.name} - Antes`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
           </div>
-          <Image
-            src={testimonial.afterImage}
-            alt={`${testimonial.name} - Depois`}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
-            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 20vw"
-          />
+          <div className="relative w-1/2 h-full flex-shrink-0">
+            <Image
+              src={testimonial.afterImage}
+              alt={`${testimonial.name} - Depois`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          </div>
         </div>
       </div>
 
