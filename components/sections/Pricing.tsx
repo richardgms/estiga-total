@@ -71,14 +71,14 @@ const Pricing: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-20 sm:py-28 bg-black overflow-hidden">
+    <section className="relative py-16 sm:py-20 bg-black overflow-hidden">
       {/* Gradientes decorativos */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,107,0,0.15),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(255,107,0,0.15),transparent_50%)]" />
 
       <div className="relative z-10 container mx-auto px-6 sm:px-8 lg:px-12">
         {/* Título */}
-        <div className="text-center mb-20 sm:mb-28">
+        <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4 tracking-tight">
             Planos que Cabem <span className="text-secondary-orange">no Seu Bolso</span>
           </h2>
@@ -88,7 +88,7 @@ const Pricing: React.FC = () => {
         </div>
 
         {/* Grid de planos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16 sm:mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {plans.map((plan, index) => (
             <div
               key={index}
@@ -147,7 +147,7 @@ const Pricing: React.FC = () => {
                   </div>
 
                   {/* Benefícios */}
-                  <ul className="space-y-3 mb-8 flex-grow">
+                  <ul className="space-y-3 flex-grow">
                     {plan.benefits.map((benefit, idx) => (
                       <li key={idx} className="flex items-start gap-3">
                         <FaCheck className="text-secondary-orange mt-1 flex-shrink-0" />
@@ -157,16 +157,6 @@ const Pricing: React.FC = () => {
                       </li>
                     ))}
                   </ul>
-
-                  {/* CTA */}
-                  <Button
-                    variant="primary-orange"
-                    size="medium"
-                    href={getWhatsAppLink(plan.message)}
-                    className="w-full"
-                  >
-                    Assinar Agora
-                  </Button>
                 </div>
               </div>
             </div>

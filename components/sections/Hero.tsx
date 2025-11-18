@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 py-32 sm:px-8 lg:px-12">
+      <div className="relative z-10 container mx-auto px-6 py-24 sm:py-28 sm:px-8 lg:px-12">
         <div className="flex flex-col items-center lg:items-start lg:max-w-4xl text-center lg:text-left">
           <div className="mb-8 inline-flex items-center gap-3 px-5 py-3 rounded-full bg-gradient-to-r from-secondary-orange to-orange-600 text-white font-bold text-sm sm:text-base shadow-2xl border-2 border-white/20">
             <span className="tracking-wide">1 DIA GRÁTIS - Qualquer Modalidade</span>

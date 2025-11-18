@@ -82,3 +82,11 @@
     @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow;
   }
 }
+
+:fullscreen .video-fullscreen-fix,
+.video-fullscreen-fix:fullscreen,
+:-webkit-full-screen .video-fullscreen-fix,
+.video-fullscreen-fix:-webkit-full-screen {
+  object-fit: contain !important;
+  background-color: black;
+}

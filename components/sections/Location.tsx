@@ -31,7 +31,7 @@ const Location = () => {
   ];
 
   return (
-    <section className="relative py-20 sm:py-28 bg-black overflow-hidden">
+    <section className="relative py-16 sm:py-20 bg-black overflow-hidden">
       {/* Background Decorative Gradients */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,107,0,0.15),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(255,107,0,0.15),transparent_50%)]" />

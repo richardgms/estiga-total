@@ -2,8 +2,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import Button from '@/components/ui/Button';
-import { getWhatsAppLink } from '@/lib/whatsapp';
 import { FaStar } from 'react-icons/fa';
 
 interface Testimonial {
@@ -113,12 +111,12 @@ const SocialProof: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative py-20 sm:py-28 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
+    <section className="relative py-16 sm:py-20 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,107,0,0.05),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,107,0,0.05),transparent_50%)]" />
 
       <div className="relative z-10 container mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-primary mb-4 tracking-tight">
             Transformações <span className="text-secondary-orange">Reais</span>
           </h2>
@@ -136,7 +134,7 @@ const SocialProof: React.FC = () => {
         <div className="lg:hidden relative">
           <div
             ref={scrollContainerRef}
-            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-16 pt-6 px-6"
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-10 sm:pb-16 pt-6 px-6"
             style={{ scrollSnapType: 'x mandatory' }}
           >
             {testimonials.map((testimonial, index) => (
@@ -152,7 +150,7 @@ const SocialProof: React.FC = () => {
             ))}
           </div>
 
-          <div className="flex justify-center gap-3 mt-8">
+          <div className="flex justify-center gap-3 mt-5 sm:mt-8">
             {testimonials.map((_, index) => (
               <button
                 key={index}
@@ -167,18 +165,6 @@ const SocialProof: React.FC = () => {
               />
             ))}
           </div>
-        </div>
-
-        <div className="text-center mt-12 px-4">
-          <Button
-            variant="primary-orange"
-            size="medium"
-            showWhatsAppIcon
-            href={getWhatsAppLink('Olá! Quero minha transformação na Estiga Total!')}
-            className="text-base px-6 py-3 shadow-2xl hover:shadow-secondary-orange/30 font-bold"
-          >
-            Quero Minha Transformação
-          </Button>
         </div>
       </div>
     </section>

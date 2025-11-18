@@ -8,7 +8,7 @@ import { FaClock } from 'react-icons/fa';
 
 const CTAFinal: React.FC = () => {
   return (
-    <section className="relative py-20 sm:py-28 bg-black overflow-hidden">
+    <section className="relative py-16 sm:py-20 bg-black overflow-hidden">
       {/* Imagem de Fundo */}
       <div className="absolute inset-0 z-0">
         <Image

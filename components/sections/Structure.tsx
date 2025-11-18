@@ -92,7 +92,7 @@ const GalleryItem: React.FC<{ image: GalleryImage }> = ({ image }) => {
 
 const Structure: React.FC = () => {
   return (
-    <section className="relative py-20 sm:py-28 bg-white overflow-hidden">
+    <section className="relative py-16 sm:py-20 bg-white overflow-hidden">
       {/* Background Gradients */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-secondary-orange/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary-orange/5 rounded-full blur-3xl" />
@@ -117,7 +117,7 @@ const Structure: React.FC = () => {
         </div>
 
         {/* Divider */}
-        <div className="my-12 sm:my-16 w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+        <div className="my-8 sm:my-12 w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
 
         {/* Optional: Features List Below Gallery */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
