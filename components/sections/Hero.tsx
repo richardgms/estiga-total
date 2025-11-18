@@ -41,7 +41,15 @@ const Hero: React.FC = () => {
             <span className="text-secondary-orange font-bold"> Santa Rita - PB</span>.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto mb-10">
+          {/* Setinha no mobile (onde ficava o CTA) */}
+          <div className="flex sm:hidden justify-center w-full mb-10 animate-bounce">
+            <div className="text-white text-4xl opacity-80">
+              ↓
+            </div>
+          </div>
+
+          {/* CTA Button - oculto no mobile, visível no desktop */}
+          <div className="hidden sm:flex flex-col sm:flex-row gap-5 w-full sm:w-auto mb-10">
             <Button
               variant="primary-orange"
               size="medium"
@@ -53,12 +61,15 @@ const Hero: React.FC = () => {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-3xl">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-3xl mb-4 sm:mb-0">
             <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-xl p-5 border border-secondary-orange/60 hover:bg-white/20 transition-all">
               <FaCheckCircle className="text-3xl text-secondary-orange flex-shrink-0" />
               <div className="text-left">
                 <p className="text-white font-bold text-base">Sem Taxa</p>
-                <p className="text-gray-300 text-sm">de Matrícula</p>
+                <p className="text-gray-300 text-sm">
+                  de Matrícula{' '}
+                  <span className="text-xs text-gray-400">(Nos planos Semestral e Clube+)</span>
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-xl p-5 border border-secondary-orange/60 hover:bg-white/20 transition-all">
@@ -79,9 +90,23 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-        <div className="text-white text-4xl opacity-80 hover:opacity-100 transition-opacity cursor-pointer">
-          ↓
+      {/* CTA Button no mobile (onde ficava a setinha) / Setinha no desktop */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 w-full max-w-3xl px-6 sm:px-0 sm:w-auto">
+        <div className="sm:hidden">
+          <Button
+            variant="primary-orange"
+            size="medium"
+            showWhatsAppIcon
+            href={getWhatsAppLink('Olá! Quero agendar minha aula experimental GRÁTIS na Estiga Total!')}
+            className="text-base px-8 py-3 shadow-2xl hover:shadow-secondary-orange/30 font-bold w-full"
+          >
+            Quero Minha Aula Grátis
+          </Button>
+        </div>
+        <div className="hidden sm:block animate-bounce">
+          <div className="text-white text-4xl opacity-80 hover:opacity-100 transition-opacity cursor-pointer">
+            ↓
+          </div>
         </div>
       </div>
     </section>

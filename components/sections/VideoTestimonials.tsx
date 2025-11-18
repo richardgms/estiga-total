@@ -31,12 +31,11 @@ const VideoTestimonials: React.FC = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const videoRefs = useRef<HTMLVideoElement[]>([]);
-  const sectionRef = useRef<HTMLElement | null>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const pauseOtherVideos = useCallback((currentVideo: HTMLVideoElement) => {
     videoRefs.current.forEach((video) => {
-      if (video !== currentVideo) {
+      if (video && video !== currentVideo) {
         video.pause();
       }
     });
@@ -86,7 +85,7 @@ const VideoTestimonials: React.FC = () => {
 
     const observerOptions = {
       root: container,
-      threshold: 0.5, // Card é considerado ativo quando 50% está visível
+      threshold: 0.5,
       rootMargin: '0px',
     };
 
@@ -113,7 +112,7 @@ const VideoTestimonials: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-20 sm:py-28 bg-black overflow-hidden">
+    <section className="relative py-20 sm:py-28 bg-black overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,107,0,0.1),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,107,0,0.1),transparent_50%)]" />
 
@@ -127,43 +126,25 @@ const VideoTestimonials: React.FC = () => {
           </p>
         </div>
 
-        <div
-          ref={scrollContainerRef}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-10 sm:pb-16 pt-6 px-6"
-          style={{ scrollSnapType: 'x mandatory' }}
-        >
+        <div className="hidden lg:grid lg:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto py-2">
           {videoTestimonials.map((testimonial, index) => (
-            <div
+            <VideoCard
               key={testimonial.id}
-              ref={(el) => {
-                slideRefs.current[index] = el;
-              }}
-              className="w-[calc(100vw-3rem)] max-w-md snap-center flex-shrink-0"
-            >
-              <VideoCard
-                testimonial={testimonial}
-                videoRefs={videoRefs}
-                onPlayOtherVideos={pauseOtherVideos}
-              />
-            </div>
+              testimonial={testimonial}
+              onPlay={pauseOtherVideos}
+              videoRefs={videoRefs}
+              index={index}
+            />
           ))}
         </div>
 
-        {/* Desktop Grid */}
-        <div className="hidden lg:grid lg:grid-cols-2 gap-8 mb-12 max-w-5xl mx-auto">
-          {videoTestimonials.map((testimonial) => (
-            <VideoCard key={testimonial.id} testimonial={testimonial} />
-          ))}
-        </div>
-
-        {/* Mobile Carousel */}
         <div className="lg:hidden relative">
-          <p className="text-center text-sm text-gray-400 mb-2 px-6">
+          <p className="text-center text-sm text-secondary-orange mb-2 px-6">
             ← Arraste para ver mais →
           </p>
           <div
             ref={scrollContainerRef}
-            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-10 sm:pb-16 pt-4 px-6"
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8 sm:pb-10 pt-4 px-6"
             style={{ scrollSnapType: 'x mandatory' }}
           >
             {videoTestimonials.map((testimonial, index) => (
@@ -172,15 +153,19 @@ const VideoTestimonials: React.FC = () => {
                 ref={(el) => {
                   slideRefs.current[index] = el;
                 }}
-                className="w-[calc(100vw-3rem)] max-w-md snap-center flex-shrink-0"
+                className="w-[calc(100vw-3rem)] max-w-md snap-center flex-shrink-0 py-2"
               >
-                <VideoCard testimonial={testimonial} videoRefs={sectionRef.current ? (sectionRef.current as any).videoRefs : undefined} />
+                <VideoCard
+                  testimonial={testimonial}
+                  onPlay={pauseOtherVideos}
+                  videoRefs={videoRefs}
+                  index={index}
+                />
               </div>
             ))}
           </div>
 
-          {/* Navigation Dots */}
-          <div className="flex justify-center gap-3 mt-5 sm:mt-8">
+          <div className="flex justify-center gap-3 mt-2 sm:mt-3">
             {videoTestimonials.map((_, index) => (
               <button
                 key={index}
@@ -188,7 +173,7 @@ const VideoTestimonials: React.FC = () => {
                 className={`rounded-full transition-all duration-500 ease-out transform ${
                   activeSlide === index
                     ? 'w-10 h-2.5 bg-secondary-orange scale-110 shadow-lg shadow-secondary-orange/50'
-                    : 'w-2.5 h-2.5 bg-gray-600 hover:bg-gray-500 hover:scale-110'
+                    : 'w-2.5 h-2.5 bg-gray-400 hover:bg-gray-300 hover:scale-110'
                 }`}
                 aria-label={`Ir para depoimento ${index + 1}`}
                 aria-current={activeSlide === index ? 'true' : 'false'}
@@ -197,7 +182,6 @@ const VideoTestimonials: React.FC = () => {
           </div>
         </div>
 
-        {/* CTA */}
         <div className="text-center mt-12 px-4">
           <Button
             variant="primary-orange"
@@ -214,28 +198,30 @@ const VideoTestimonials: React.FC = () => {
   );
 };
 
-const VideoCard: React.FC<{
+interface VideoCardProps {
   testimonial: VideoTestimonial;
-  videoRefs: React.MutableRefObject<HTMLVideoElement[]>;
-  onPlayOtherVideos: (currentVideo: HTMLVideoElement) => void;
-}> = ({ testimonial, videoRefs, onPlayOtherVideos }) => {
+  videoRefs: React.MutableRefObject<(HTMLVideoElement | null)[]>;
+  onPlay: (currentVideo: HTMLVideoElement) => void;
+  index: number;
+}
+
+const VideoCard: React.FC<VideoCardProps> = ({ testimonial, videoRefs, onPlay, index }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
+    const refs = videoRefs.current;
     if (videoRef.current) {
-      videoRefs.current.push(videoRef.current);
+      refs[index] = videoRef.current;
     }
 
     return () => {
-      if (videoRef.current) {
-        videoRefs.current = videoRefs.current.filter((video) => video !== videoRef.current);
-      }
+      refs[index] = null;
     };
-  }, [videoRefs]);
+  }, [videoRefs, index]);
 
   const handlePlay = () => {
     if (videoRef.current) {
-      onPlayOtherVideos(videoRef.current);
+      onPlay(videoRef.current);
     }
   };
 
@@ -262,61 +248,9 @@ const VideoCard: React.FC<{
       {/* Card Content */}
       <div className="relative z-10 p-6 lg:p-6">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-xl lg:text-2xl font-bold text-white group-hover:text-secondary-orange transition-colors duration-300">{testimonial.name}</h3>
-          <div className="flex gap-0.5 lg:gap-1">
-            {[...Array(5)].map((_, i) => (
-              <FaStar key={i} className="text-secondary-orange text-sm lg:text-base" />
-            ))}
-          </div>
-        </div>
-
-        <p className="text-gray-300 leading-relaxed text-sm lg:text-base">
-          Assista ao depoimento completo e veja como a Estiga Total transformou a vida de {testimonial.name}.
-        </p>
-      </div>
-    </div>
-  );
-};
-
-    return () => {
-      if (videoRef.current) {
-        videoRefs.current = videoRefs.current.filter((video) => video !== videoRef.current);
-      }
-    };
-  }, [videoRefs]);
-
-  const handlePlay = () => {
-    videoRefs.current.forEach((video) => {
-      if (video !== videoRef.current) {
-        video.pause();
-      }
-    });
-  };
-
-  return (
-    <div className="group relative bg-black rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-800 hover:border-secondary-orange/50 hover:shadow-secondary-orange/20 hover:-translate-y-2 max-w-md mx-auto lg:max-w-none">
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary-orange/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
-
-      {/* Video Player */}
-      <div className="relative aspect-square overflow-hidden bg-black">
-        <video
-          ref={videoRef}
-          controls
-          preload="metadata"
-          playsInline
-          poster={testimonial.posterUrl}
-          className="w-full h-full object-cover video-fullscreen-fix"
-          onPlay={handlePlay}
-        >
-          <source src={testimonial.videoUrl} type="video/mp4" />
-          Seu navegador não suporta a reprodução de vídeos.
-        </video>
-      </div>
-
-      {/* Card Content */}
-      <div className="relative z-10 p-6 lg:p-6">
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="text-xl lg:text-2xl font-bold text-white group-hover:text-secondary-orange transition-colors duration-300">{testimonial.name}</h3>
+          <h3 className="text-xl lg:text-2xl font-bold text-white group-hover:text-secondary-orange transition-colors duration-300">
+            {testimonial.name}
+          </h3>
           <div className="flex gap-0.5 lg:gap-1">
             {[...Array(5)].map((_, i) => (
               <FaStar key={i} className="text-secondary-orange text-sm lg:text-base" />
