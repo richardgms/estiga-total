@@ -126,9 +126,12 @@ const VideoTestimonials: React.FC = () => {
 
         {/* Mobile Carousel */}
         <div className="lg:hidden relative">
+          <p className="text-center text-sm text-gray-400 mb-2 px-6">
+            ← Arraste para ver mais →
+          </p>
           <div
             ref={scrollContainerRef}
-            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-10 sm:pb-16 pt-6 px-6"
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-10 sm:pb-16 pt-4 px-6"
             style={{ scrollSnapType: 'x mandatory' }}
           >
             {videoTestimonials.map((testimonial, index) => (

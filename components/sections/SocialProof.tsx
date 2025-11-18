@@ -116,8 +116,8 @@ const SocialProof: React.FC = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,107,0,0.05),transparent_50%)]" />
 
       <div className="relative z-10 container mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-primary mb-4 tracking-tight">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-primary mb-3 tracking-tight">
             Transformações <span className="text-secondary-orange">Reais</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
@@ -125,16 +125,19 @@ const SocialProof: React.FC = () => {
           </p>
         </div>
 
-        <div className="hidden lg:grid lg:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
+        <div className="hidden lg:grid lg:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto py-2">
           {testimonials.map((testimonial) => (
             <TestimonialCard key={testimonial.id} testimonial={testimonial} />
           ))}
         </div>
 
         <div className="lg:hidden relative">
+          <p className="text-center text-sm text-gray-500 mb-2 px-6">
+            ← Arraste para ver mais →
+          </p>
           <div
             ref={scrollContainerRef}
-            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-10 sm:pb-16 pt-6 px-6"
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8 sm:pb-10 pt-4 px-6"
             style={{ scrollSnapType: 'x mandatory' }}
           >
             {testimonials.map((testimonial, index) => (
@@ -143,14 +146,14 @@ const SocialProof: React.FC = () => {
                 ref={(el) => {
                   slideRefs.current[index] = el;
                 }}
-                className="w-[calc(100vw-3rem)] max-w-md snap-center flex-shrink-0"
+                className="w-[calc(100vw-3rem)] max-w-md snap-center flex-shrink-0 py-2"
               >
                 <TestimonialCard testimonial={testimonial} />
               </div>
             ))}
           </div>
 
-          <div className="flex justify-center gap-3 mt-5 sm:mt-8">
+          <div className="flex justify-center gap-3 mt-2 sm:mt-3">
             {testimonials.map((_, index) => (
               <button
                 key={index}
@@ -214,8 +217,8 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
         </div>
       </div>
 
-      <div className="p-6 lg:p-6">
-        <div className="flex items-center justify-between mb-2 lg:mb-3">
+      <div className="p-5 lg:p-5">
+        <div className="flex items-center justify-between mb-2">
           <h3 className="text-lg lg:text-xl font-bold text-primary">{testimonial.name}</h3>
           <div className="flex gap-0.5 lg:gap-1">
             {[...Array(testimonial.rating)].map((_, i) => (
@@ -224,7 +227,7 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
           </div>
         </div>
 
-        <div className="mb-3 lg:mb-4">
+        <div className="mb-2 lg:mb-3">
           <span className="inline-block bg-gradient-to-r from-secondary-orange to-orange-600 text-white font-bold text-sm lg:text-lg px-3 py-1.5 lg:px-4 lg:py-2 rounded-lg shadow-md">
             {testimonial.result}
           </span>
