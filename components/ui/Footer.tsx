@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
               />
             </div>
             <p className="text-gray-300 text-sm md:text-sm leading-relaxed mb-3 md:mb-4">
-              Academia completa em Santa Rita/PB com estrutura moderna, profissionais qualificados e planos acessíveis.
+              Academia completa em Santa Rita -PB com estrutura moderna, profissionais qualificados e planos acessíveis.
             </p>
             <div className="flex justify-center gap-3 mt-4 md:mt-6">
               <a
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 pt-6 md:pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-sm md:text-sm text-gray-400">
             <p className="text-center md:text-left">
-              © {currentYear} <span className="font-semibold text-white">Estiga Total Academia</span> - Santa Rita/PB. Todos os direitos reservados.
+              © {currentYear} <span className="font-semibold text-white">Estiga Total Academia</span> - Santa Rita - PB. Todos os direitos reservados.
             </p>
             <div className="flex gap-4 md:gap-6 text-sm">
               <a href="#" className="hover:text-secondary-orange transition-colors">

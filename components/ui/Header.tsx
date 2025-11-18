@@ -47,7 +47,7 @@ const Header: React.FC = () => {
           <div className="flex items-center gap-3 sm:gap-6">
             <div className="hidden lg:flex items-center gap-2 text-sm font-semibold text-white">
               <FaMapMarkerAlt className="text-secondary-orange text-lg" />
-              <span>Santa Rita/PB</span>
+              <span>Santa Rita - PB</span>
             </div>
 
             <a

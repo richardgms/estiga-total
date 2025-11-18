@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
 
           <p className="text-xl sm:text-2xl lg:text-3xl text-gray-100 mb-10 max-w-3xl leading-relaxed font-medium drop-shadow-lg">
             Estrutura completa, profissionais qualificados e planos acessíveis em
-            <span className="text-secondary-orange font-bold"> Santa Rita/PB</span>.
+            <span className="text-secondary-orange font-bold"> Santa Rita - PB</span>.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto mb-10">
