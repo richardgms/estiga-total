@@ -19,7 +19,7 @@ const faqData: FAQItem[] = [
   },
   {
     question: 'Posso cancelar o plano?',
-    answer: 'Sim! O Plano Clube+ tem fidelidade de 12 meses, mas outros planos são flexíveis.',
+    answer: 'Sim! Os planos "Semestral" e "Clube+" tem fidelidade de 12 meses, mas outros planos são flexíveis.',
   },
   {
     question: 'Quais modalidades estão inclusas?',
