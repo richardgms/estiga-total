@@ -25,10 +25,23 @@ const videoTestimonials: VideoTestimonial[] = [
     videoUrl: '/videos/testimonials/testimonial-2.mp4',
     posterUrl: '/videos/testimonials/poster-2.jpg',
   },
+  {
+    id: 3,
+    name: 'Depoimento 3',
+    videoUrl: '/videos/testimonials/testimonial-3.mp4',
+    posterUrl: '/videos/testimonials/poster-3.jpg',
+  },
+  {
+    id: 4,
+    name: 'Depoimento 4',
+    videoUrl: '/videos/testimonials/testimonial-4.mp4',
+    posterUrl: '/videos/testimonials/poster-4.jpg',
+  },
 ];
 
 const VideoTestimonials: React.FC = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [desktopPage, setDesktopPage] = useState(0); // 0 = primeira página (vídeos 1-2), 1 = segunda página (vídeos 3-4)
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
@@ -126,16 +139,85 @@ const VideoTestimonials: React.FC = () => {
           </p>
         </div>
 
-        <div className="hidden lg:grid lg:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto py-2">
-          {videoTestimonials.map((testimonial, index) => (
-            <VideoCard
-              key={testimonial.id}
-              testimonial={testimonial}
-              onPlay={pauseOtherVideos}
-              videoRefs={videoRefs}
-              index={index}
-            />
-          ))}
+        <div className="hidden lg:block mb-12">
+          <div className="relative max-w-6xl mx-auto">
+            <div className="flex items-center justify-center gap-8">
+              {/* Botão Esquerda */}
+              <button
+                onClick={() => setDesktopPage(0)}
+                disabled={desktopPage === 0}
+                className={`p-4 rounded-full transition-all duration-300 flex-shrink-0 ${
+                  desktopPage === 0
+                    ? 'bg-gray-800 text-gray-600 cursor-not-allowed'
+                    : 'bg-secondary-orange text-white hover:bg-orange-600 hover:scale-110 shadow-lg hover:shadow-secondary-orange/50'
+                }`}
+                aria-label="Página anterior"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+              </button>
+
+              {/* Grid com 2 vídeos por página */}
+              <div className="grid grid-cols-2 gap-6 py-2 max-w-4xl w-full">
+                {videoTestimonials
+                  .slice(desktopPage * 2, desktopPage * 2 + 2)
+                  .map((testimonial, index) => (
+                    <VideoCard
+                      key={testimonial.id}
+                      testimonial={testimonial}
+                      onPlay={pauseOtherVideos}
+                      videoRefs={videoRefs}
+                      index={desktopPage * 2 + index}
+                    />
+                  ))}
+              </div>
+
+              {/* Botão Direita */}
+              <button
+                onClick={() => setDesktopPage(1)}
+                disabled={desktopPage === 1}
+                className={`p-4 rounded-full transition-all duration-300 flex-shrink-0 ${
+                  desktopPage === 1
+                    ? 'bg-gray-800 text-gray-600 cursor-not-allowed'
+                    : 'bg-secondary-orange text-white hover:bg-orange-600 hover:scale-110 shadow-lg hover:shadow-secondary-orange/50'
+                }`}
+                aria-label="Próxima página"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Indicadores de página */}
+            <div className="flex justify-center gap-2 mt-6">
+              <div
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  desktopPage === 0 ? 'w-8 bg-secondary-orange' : 'w-2 bg-gray-600'
+                }`}
+              />
+              <div
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  desktopPage === 1 ? 'w-8 bg-secondary-orange' : 'w-2 bg-gray-600'
+                }`}
+              />
+            </div>
+          </div>
         </div>
 
         <div className="lg:hidden relative">
@@ -237,7 +319,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ testimonial, videoRefs, onPlay, i
           preload="metadata"
           playsInline
           poster={testimonial.posterUrl}
-          className="w-full h-full object-cover video-fullscreen-fix"
+          className="w-full h-full object-cover object-[center_20%] video-fullscreen-fix"
           onPlay={handlePlay}
         >
           <source src={testimonial.videoUrl} type="video/mp4" />
