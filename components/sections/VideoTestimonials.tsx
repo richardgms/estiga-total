@@ -10,6 +10,7 @@ interface VideoTestimonial {
   name: string;
   videoUrl: string;
   posterUrl: string;
+  description: string;
 }
 
 const videoTestimonials: VideoTestimonial[] = [
@@ -18,24 +19,28 @@ const videoTestimonials: VideoTestimonial[] = [
     name: 'Elisangela',
     videoUrl: '/videos/testimonials/testimonial-1.mp4',
     posterUrl: '/videos/testimonials/poster-1.jpg',
+    description: 'Assista ao depoimento completo e veja como a Estiga Total transformou a vida de Elisangela.',
   },
   {
     id: 2,
     name: 'Luana',
     videoUrl: '/videos/testimonials/testimonial-2.mp4',
     posterUrl: '/videos/testimonials/poster-2.jpg',
+    description: 'Assista ao depoimento completo e veja como a Estiga Total transformou a vida de Luana.',
   },
   {
     id: 3,
-    name: 'Depoimento 3',
+    name: 'Thiago',
     videoUrl: '/videos/testimonials/testimonial-3.mp4',
     posterUrl: '/videos/testimonials/poster-3.jpg',
+    description: 'Assista ao depoimento completo e veja como a Estiga Total transformou a vida de Thiago.',
   },
   {
     id: 4,
-    name: 'Depoimento 4',
+    name: 'Fábio',
     videoUrl: '/videos/testimonials/testimonial-4.mp4',
     posterUrl: '/videos/testimonials/poster-4.jpg',
+    description: 'Assista ao depoimento completo e veja como a Estiga Total transformou a vida de Fábio.',
   },
 ];
 
@@ -146,11 +151,10 @@ const VideoTestimonials: React.FC = () => {
               <button
                 onClick={() => setDesktopPage(0)}
                 disabled={desktopPage === 0}
-                className={`p-4 rounded-full transition-all duration-300 flex-shrink-0 ${
-                  desktopPage === 0
-                    ? 'bg-gray-800 text-gray-600 cursor-not-allowed'
-                    : 'bg-secondary-orange text-white hover:bg-orange-600 hover:scale-110 shadow-lg hover:shadow-secondary-orange/50'
-                }`}
+                className={`p-4 rounded-full transition-all duration-300 flex-shrink-0 ${desktopPage === 0
+                  ? 'bg-gray-800 text-gray-600 cursor-not-allowed'
+                  : 'bg-secondary-orange text-white hover:bg-orange-600 hover:scale-110 shadow-lg hover:shadow-secondary-orange/50'
+                  }`}
                 aria-label="Página anterior"
               >
                 <svg
@@ -184,11 +188,10 @@ const VideoTestimonials: React.FC = () => {
               <button
                 onClick={() => setDesktopPage(1)}
                 disabled={desktopPage === 1}
-                className={`p-4 rounded-full transition-all duration-300 flex-shrink-0 ${
-                  desktopPage === 1
-                    ? 'bg-gray-800 text-gray-600 cursor-not-allowed'
-                    : 'bg-secondary-orange text-white hover:bg-orange-600 hover:scale-110 shadow-lg hover:shadow-secondary-orange/50'
-                }`}
+                className={`p-4 rounded-full transition-all duration-300 flex-shrink-0 ${desktopPage === 1
+                  ? 'bg-gray-800 text-gray-600 cursor-not-allowed'
+                  : 'bg-secondary-orange text-white hover:bg-orange-600 hover:scale-110 shadow-lg hover:shadow-secondary-orange/50'
+                  }`}
                 aria-label="Próxima página"
               >
                 <svg
@@ -207,14 +210,12 @@ const VideoTestimonials: React.FC = () => {
             {/* Indicadores de página */}
             <div className="flex justify-center gap-2 mt-6">
               <div
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  desktopPage === 0 ? 'w-8 bg-secondary-orange' : 'w-2 bg-gray-600'
-                }`}
+                className={`h-2 rounded-full transition-all duration-300 ${desktopPage === 0 ? 'w-8 bg-secondary-orange' : 'w-2 bg-gray-600'
+                  }`}
               />
               <div
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  desktopPage === 1 ? 'w-8 bg-secondary-orange' : 'w-2 bg-gray-600'
-                }`}
+                className={`h-2 rounded-full transition-all duration-300 ${desktopPage === 1 ? 'w-8 bg-secondary-orange' : 'w-2 bg-gray-600'
+                  }`}
               />
             </div>
           </div>
@@ -252,11 +253,10 @@ const VideoTestimonials: React.FC = () => {
               <button
                 key={index}
                 onClick={() => scrollToSlide(index)}
-                className={`rounded-full transition-all duration-500 ease-out transform ${
-                  activeSlide === index
-                    ? 'w-10 h-2.5 bg-secondary-orange scale-110 shadow-lg shadow-secondary-orange/50'
-                    : 'w-2.5 h-2.5 bg-gray-400 hover:bg-gray-300 hover:scale-110'
-                }`}
+                className={`rounded-full transition-all duration-500 ease-out transform ${activeSlide === index
+                  ? 'w-10 h-2.5 bg-secondary-orange scale-110 shadow-lg shadow-secondary-orange/50'
+                  : 'w-2.5 h-2.5 bg-gray-400 hover:bg-gray-300 hover:scale-110'
+                  }`}
                 aria-label={`Ir para depoimento ${index + 1}`}
                 aria-current={activeSlide === index ? 'true' : 'false'}
               />
@@ -341,7 +341,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ testimonial, videoRefs, onPlay, i
         </div>
 
         <p className="text-gray-300 leading-relaxed text-sm lg:text-base">
-          Assista ao depoimento completo e veja como a Estiga Total transformou a vida de {testimonial.name}.
+          {testimonial.description}
         </p>
       </div>
     </div>

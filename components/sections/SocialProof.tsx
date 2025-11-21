@@ -33,10 +33,29 @@ const testimonials: Testimonial[] = [
     beforeImage: '/images/testimonials/testimonial2.jpg',
     afterImage: '/images/testimonials/testimonial2(1).jpg',
   },
+  {
+    id: 3,
+    name: 'Adriana',
+    result: '-18kg em 6 meses',
+    rating: 5,
+    testimonial: 'Perder 18kg em 6 meses parecia impossível, mas na Estiga Total eu consegui! A metodologia e o incentivo dos professores fizeram toda a diferença nessa jornada.',
+    beforeImage: '/images/testimonials/testimonial3.jpg',
+    afterImage: '/images/testimonials/testimonial3(1).jpg',
+  },
+  {
+    id: 4,
+    name: 'Ellis Vitória',
+    result: '+11kg de massa em 8 meses',
+    rating: 5,
+    testimonial: 'Ganhei 11kg de massa muscular em 8 meses! A estrutura e os treinos personalizados da Estiga Total foram essenciais para eu alcançar meu objetivo de hipertrofia.',
+    beforeImage: '/images/testimonials/testimonial4.jpg',
+    afterImage: '/images/testimonials/testimonial4(1).jpg',
+  },
 ];
 
 const SocialProof: React.FC = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [desktopPage, setDesktopPage] = useState(0); // 0 = primeira página (1-2), 1 = segunda página (3-4)
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -125,12 +144,79 @@ const SocialProof: React.FC = () => {
           </p>
         </div>
 
-        <div className="hidden lg:grid lg:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto py-2">
-          {testimonials.map((testimonial) => (
-            <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-          ))}
+        {/* Desktop View - Carousel */}
+        <div className="hidden lg:block mb-12">
+          <div className="relative max-w-6xl mx-auto">
+            <div className="flex items-center justify-center gap-8">
+              {/* Botão Esquerda */}
+              <button
+                onClick={() => setDesktopPage(0)}
+                disabled={desktopPage === 0}
+                className={`p-4 rounded-full transition-all duration-300 flex-shrink-0 ${desktopPage === 0
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-secondary-orange text-white hover:bg-orange-600 hover:scale-110 shadow-lg hover:shadow-secondary-orange/50'
+                  }`}
+                aria-label="Página anterior"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+              </button>
+
+              {/* Grid com 2 cards por página */}
+              <div className="grid grid-cols-2 gap-6 py-2 max-w-4xl w-full">
+                {testimonials
+                  .slice(desktopPage * 2, desktopPage * 2 + 2)
+                  .map((testimonial) => (
+                    <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+                  ))}
+              </div>
+
+              {/* Botão Direita */}
+              <button
+                onClick={() => setDesktopPage(1)}
+                disabled={desktopPage === 1}
+                className={`p-4 rounded-full transition-all duration-300 flex-shrink-0 ${desktopPage === 1
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-secondary-orange text-white hover:bg-orange-600 hover:scale-110 shadow-lg hover:shadow-secondary-orange/50'
+                  }`}
+                aria-label="Próxima página"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Indicadores de página */}
+            <div className="flex justify-center gap-2 mt-6">
+              <div
+                className={`h-2 rounded-full transition-all duration-300 ${desktopPage === 0 ? 'w-8 bg-secondary-orange' : 'w-2 bg-gray-300'
+                  }`}
+              />
+              <div
+                className={`h-2 rounded-full transition-all duration-300 ${desktopPage === 1 ? 'w-8 bg-secondary-orange' : 'w-2 bg-gray-300'
+                  }`}
+              />
+            </div>
+          </div>
         </div>
 
+        {/* Mobile View - Horizontal Scroll */}
         <div className="lg:hidden relative">
           <p className="text-center text-sm text-gray-500 mb-2 px-6">
             ← Arraste para ver mais →
@@ -158,11 +244,10 @@ const SocialProof: React.FC = () => {
               <button
                 key={index}
                 onClick={() => scrollToSlide(index)}
-                className={`rounded-full transition-all duration-500 ease-out transform ${
-                  activeSlide === index
-                    ? 'w-10 h-2.5 bg-secondary-orange scale-110 shadow-lg shadow-secondary-orange/50'
-                    : 'w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400 hover:scale-110'
-                }`}
+                className={`rounded-full transition-all duration-500 ease-out transform ${activeSlide === index
+                  ? 'w-10 h-2.5 bg-secondary-orange scale-110 shadow-lg shadow-secondary-orange/50'
+                  : 'w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400 hover:scale-110'
+                  }`}
                 aria-label={`Ir para depoimento ${index + 1}`}
                 aria-current={activeSlide === index ? 'true' : 'false'}
               />

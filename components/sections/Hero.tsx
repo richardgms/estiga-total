@@ -75,8 +75,8 @@ const Hero: React.FC = () => {
             <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-xl p-5 border border-secondary-orange/60 hover:bg-white/20 transition-all">
               <FaDumbbell className="text-3xl text-secondary-orange flex-shrink-0" />
               <div className="text-left">
-                <p className="text-white font-bold text-base">6 Modalidades</p>
-                <p className="text-gray-300 text-sm">Incluídas</p>
+                <p className="text-white font-bold text-base">8 Modalidades</p>
+                <span className="text-xs text-gray-400 block leading-3">(Incluídas nos planos Passaporte, Semestral e Clube+)</span>
               </div>
             </div>
             <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-xl p-5 border border-secondary-orange/60 hover:bg-white/20 transition-all">
