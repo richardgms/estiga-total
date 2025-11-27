@@ -7,20 +7,20 @@ import Footer from "@/components/ui/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Estiga Total Academia | Aula Grátis - Santa Rita/PB",
-  description: "Academia completa em Santa Rita/PB. Musculação, Fit Dance, Jump, Aeróbox e mais! Plano Clube+ por R$49/mês. Agende sua aula experimental grátis.",
+  title: "Academia em Santa Rita PB | Musculação e Funcional | Estiga Total",
+  description: "Procurando academia em Santa Rita? A Estiga Total oferece Musculação, Funcional, Pilates e Dança a partir de R$ 49,90. Agende sua aula grátis no Bairro Popular!",
   keywords: ["academia santa rita", "academia santa rita pb", "musculação santa rita", "fit dance santa rita", "plano academia", "academia barata pb", "estiga total"],
   icons: {
     icon: '/icons/logo.svg',
   },
   openGraph: {
-    title: "Estiga Total Academia - Sua melhor versão começa aqui",
-    description: "Agende sua aula experimental grátis! Plano Clube+ por R$49/mês. Estrutura completa em Santa Rita/PB.",
+    title: "Academia em Santa Rita PB | Musculação e Funcional | Estiga Total",
+    description: "Procurando academia em Santa Rita? A Estiga Total oferece Musculação, Funcional, Pilates e Dança a partir de R$ 49,90. Agende sua aula grátis no Bairro Popular!",
     url: "https://estigatotal.netlify.app",
     siteName: "Estiga Total Academia",
     images: [
       {
-        url: "/images/hero/hero-main.webp",
+        url: "/images/hero/academia-musculacao-santa-rita-estiga.webp",
         width: 1920,
         height: 1080,
         alt: "Estiga Total Academia - Estrutura moderna em Santa Rita/PB",
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Estiga Total Academia | Aula Grátis - Santa Rita/PB",
-    description: "Plano Clube+ por R$49/mês. Agende sua aula experimental grátis!",
-    images: ["/images/hero/hero-main.webp"],
+    title: "Academia em Santa Rita PB | Musculação e Funcional | Estiga Total",
+    description: "Procurando academia em Santa Rita? A Estiga Total oferece Musculação, Funcional, Pilates e Dança a partir de R$ 49,90. Agende sua aula grátis no Bairro Popular!",
+    images: ["/images/hero/academia-musculacao-santa-rita-estiga.webp"],
   },
   robots: {
     index: true,
@@ -55,7 +55,7 @@ export default function RootLayout({
     "@type": "ExerciseGym",
     "name": "Estiga Total Academia",
     "description": "Academia completa em Santa Rita/PB com estrutura moderna, profissionais qualificados e planos acessíveis.",
-    "image": "https://estigatotal.netlify.app/images/hero/hero-main.webp",
+    "image": "https://estigatotal.netlify.app/images/hero/academia-musculacao-santa-rita-estiga.webp",
     "url": "https://estigatotal.netlify.app",
     "telephone": "+55-83-99190-7740",
     "priceRange": "R$49-R$89",
@@ -93,7 +93,16 @@ export default function RootLayout({
     ],
     "sameAs": [
       "https://instagram.com/estigatotal.academia"
-    ]
+    ],
+    "areaServed": [
+      { "@type": "Neighborhood", "name": "Bairro Popular" },
+      { "@type": "Neighborhood", "name": "Centro" },
+      { "@type": "Neighborhood", "name": "Açude" },
+      { "@type": "Neighborhood", "name": "Jardim Planalto" },
+      { "@type": "Neighborhood", "name": "Tibiri" },
+      { "@type": "Neighborhood", "name": "Várzea Nova" }
+    ],
+    "hasMap": "https://maps.google.com/maps?q=R.+Venâncio+Correia,+182,+Bairro+Popular,+Santa+Rita+-+PB"
   };
 
   return (

@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero/hero-main.webp"
+          src="/images/hero/academia-musculacao-santa-rita-estiga.webp"
           alt="Estiga Total Academia - Estrutura moderna e equipamentos de última geração"
           fill
           priority
@@ -30,9 +30,12 @@ const Hero: React.FC = () => {
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black text-white mb-6 drop-shadow-2xl leading-[1.1] tracking-tight">
-            Sua melhor versão
+            Sua melhor versão começa na
             <span className="block text-secondary-orange mt-2">
-              começa aqui
+              Estiga Total
+            </span>
+            <span className="block text-3xl sm:text-4xl lg:text-5xl mt-4 font-bold text-white">
+              a academia completa em <span className="text-secondary-orange">Santa Rita - PB</span>.
             </span>
           </h1>
 
