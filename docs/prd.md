@@ -12,7 +12,7 @@ Landing Page de Captação de Leads - Estiga Total Academia
 Desenvolver uma landing page para captar novos leads através de aula experimental gratuita, com botões de conversão direcionando para WhatsApp com mensagem personalizada.
 
 ### 1.3 Contexto
-A Estiga Total Academia é um centro de fitness localizado em Santa Rita/PB que oferece diversas modalidades de treino (musculação e aulas coletivas). A landing page será o principal canal digital de captação de novos alunos, apresentando a estrutura, diferenciais e planos da academia.
+A Estiga Total Academia é um centro de fitness localizado em Santa Rita/PB que oferece diversas modalidades de treino (musculação e aulas coletivas). Atualmente conta com duas unidades estrategicamente localizadas na cidade para melhor atender os alunos. A landing page será o principal canal digital de captação de novos alunos, apresentando a estrutura, diferenciais e planos da academia.
 
 ---
 
@@ -229,16 +229,19 @@ R$ 49,00/mês*
 
 **Informações:**
 ```
-📍 Endereço:
+📍 Unidade 1 (Centro/Popular):
 R. Venâncio Correia, 182
 Bairro Popular, Santa Rita - PB
+📞 WhatsApp: (83) 99190-7740
 
-⏰ Horário de Funcionamento:
+📍 Unidade 2 (Popular):
+R. do Colégio, 164
+Bairro Popular, Santa Rita - PB
+📞 WhatsApp: (83) 99420-6593
+
+⏰ Horário de Funcionamento (Ambas as Unidades):
 Segunda a Sexta: 05h às 22h
 Sábado: 8h às 11h | 14h às 17h
-
-📞 WhatsApp:
-(83) 99190-7740
 ```
 
 **Elementos visuais:**
@@ -307,7 +310,7 @@ Sábado: 8h às 11h | 14h às 17h
 
 **Configuração técnica:**
 ```
-Link: https://wa.me/5583991907740?text=Olá,%20quero%20agendar%20minha%20aula%20experimental%20na%20Estiga%20Total.
+Link: https://wa.me/5583991907740?text=Olá,%20quero%20agendar%20my%20aula%20experimental%20na%20Estiga%20Total.
 
 UTM Source: ?utm_source=landing_estigatotal
 ```
@@ -569,9 +572,9 @@ UTM Source: ?utm_source=landing_estigatotal
 ## 20. CONTATOS DO PROJETO
 
 **Estiga Total Academia**
-- WhatsApp: (83) 99190-7740
+- Unidade 1: (83) 99190-7740 | R. Venâncio Correia, 182
+- Unidade 2: (83) 99420-6593 | R. do Colégio, 164
 - Instagram: @estigatotal.academia
-- Endereço: R. Venâncio Correia, 182 - Santa Rita/PB
 
 ---
 

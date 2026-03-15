@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
               />
             </div>
             <p className="text-gray-300 text-sm md:text-sm leading-relaxed mb-3 md:mb-4">
-              Localizada estrategicamente no <strong className="text-white">Bairro Popular</strong>, a Estiga Total é a opção ideal de academia para moradores do <strong className="text-white">Centro</strong>, <strong className="text-white">Açude</strong>, <strong className="text-white">Jardim Planalto</strong> e região.
+              Com duas unidades estrategicamente localizadas no <strong className="text-white font-bold">Bairro Popular</strong>, a Estiga Total é a opção ideal para moradores do <strong className="text-white font-bold">Centro</strong>, <strong className="text-white font-bold">Jardim Planalto</strong> e toda Santa Rita.
             </p>
             <div className="flex justify-center gap-3 mt-4 md:mt-6">
               <a
