@@ -21,8 +21,8 @@ const testimonials: Testimonial[] = [
     result: '-10kg (74kg → 64kg)',
     rating: 5,
     testimonial: 'A Estiga Total mudou minha vida! Com o apoio da equipe, eliminei 10kg e conquistei a saúde que sempre quis. Me sinto incrível!',
-    beforeImage: '/images/testimonials/testimonial1.jpg',
-    afterImage: '/images/testimonials/testimonial1(1).jpg',
+    beforeImage: '/images/transformations/t1-before-compressed.webp',
+    afterImage: '/images/transformations/t1-after-compressed.webp',
   },
   {
     id: 2,
@@ -30,8 +30,8 @@ const testimonials: Testimonial[] = [
     result: '-9kg em 30 dias',
     rating: 5,
     testimonial: 'Em apenas 30 dias consegui resultados que nunca imaginei! A equipe da Estiga Total é incrível, me motivaram todos os dias. Estou muito feliz com minha transformação!',
-    beforeImage: '/images/testimonials/testimonial2.jpg',
-    afterImage: '/images/testimonials/testimonial2(1).jpg',
+    beforeImage: '/images/transformations/t2-before-compressed.webp',
+    afterImage: '/images/transformations/t2-after-compressed.webp',
   },
   {
     id: 3,
@@ -39,8 +39,8 @@ const testimonials: Testimonial[] = [
     result: '-18kg em 6 meses',
     rating: 5,
     testimonial: 'Perder 18kg em 6 meses parecia impossível, mas na Estiga Total eu consegui! A metodologia e o incentivo dos professores fizeram toda a diferença nessa jornada.',
-    beforeImage: '/images/testimonials/testimonial3.jpg',
-    afterImage: '/images/testimonials/testimonial3(1).jpg',
+    beforeImage: '/images/transformations/t3-before-compressed.webp',
+    afterImage: '/images/transformations/t3-after-compressed.webp',
   },
   {
     id: 4,
@@ -48,8 +48,8 @@ const testimonials: Testimonial[] = [
     result: '+11kg de massa em 8 meses',
     rating: 5,
     testimonial: 'Ganhei 11kg de massa muscular em 8 meses! A estrutura e os treinos personalizados da Estiga Total foram essenciais para eu alcançar meu objetivo de hipertrofia.',
-    beforeImage: '/images/testimonials/testimonial4.jpg',
-    afterImage: '/images/testimonials/testimonial4(1).jpg',
+    beforeImage: '/images/transformations/t4-before-compressed.webp',
+    afterImage: '/images/transformations/t4-after-compressed.webp',
   },
 ];
 
